@@ -3,12 +3,14 @@ import Proptype from 'prop-types';
 import Header from '../header/header.jsx';
 import Login from './login.jsx';
 import AlertBox from '../header/alert.jsx';
+import Signup from './signup.jsx';
 
 const AuthPage = props => (
   <React.Fragment>
     <div className="loginPage">
       <Header />
       <div className="blind" />
+      {props.match.params.id === 'signup' && <Signup />}
       {(props.match.params.id === 'login' || !props.match.params.id) && <Login />}
       <AlertBox />
     </div>
