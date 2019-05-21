@@ -40,11 +40,11 @@
     display: block;
   }
   .inbox .bottom .left {
-    width: -0%;
+    width: 0%;
     border-right: 0;
   }
   .inbox .bottom .left.show {
-    width: 20%;
+    width: 25%;
     border-right: lightblue solid 0.3em;
   }
   .inbox .bottom .right,

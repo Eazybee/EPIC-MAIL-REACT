@@ -1,8 +1,8 @@
 import React from 'react';
 import Proptype from 'prop-types';
-import Header from '../header/header.jsx';
+import Header from './header.jsx';
 import Login from './login.jsx';
-import AlertBox from '../header/alert.jsx';
+import AlertBox from '../alert/alert.jsx';
 import Signup from './signup.jsx';
 import Reset from './reset.jsx';
 
