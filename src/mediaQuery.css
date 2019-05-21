@@ -1,0 +1,95 @@
+@media screen and (min-width: 1025px) and (max-width: 1230px) {
+  * {
+    font-size: 16px;
+  }
+}
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  * {
+    font-size: 14px;
+  }
+  .alert {
+    width: 40%;
+  }
+}
+@media screen and (min-width: 600px) and (max-width: 768px) {
+  * {
+    font-size: 13px;
+  }
+  .alert {
+    width: 50%;
+  }
+}
+
+@media screen and (min-width: 400px) and (max-width: 599px),
+  screen and (max-width: 399px) {
+  * {
+    font-size: 12.5px;
+  }
+  .alert {
+    width: 80%;
+    margin: 15% 10%;
+  }
+  .loginPage > h1 {
+    font-size: 4em;
+  }
+  .loginPage .sign {
+    width: 28em;
+  }
+  .inbox .seek {
+    height: 2em;
+    display: block;
+  }
+  .inbox .bottom .left {
+    width: -0%;
+    border-right: 0;
+  }
+  .inbox .bottom .left.show {
+    width: 20%;
+    border-right: lightblue solid 0.3em;
+  }
+  .inbox .bottom .right,
+  .inbox .bottom .left {
+    background-color: white;
+  }
+  .inbox .bottom li.groups li a {
+    padding-left: 1em;
+  }
+  .inbox .right-compose .address label {
+    width: 25%;
+  }
+  .inbox .right-compose .address input[type="email"],
+  .inbox .right-compose .address select {
+    padding: 0.5em;
+    width: 68%;
+  }
+  .right-group div > div {
+    display: flex;
+    flex-flow: column;
+  }
+}
+@media screen and (max-width: 399px) {
+  * {
+    font-size: 11.5px;
+  }
+}
+@media screen and (max-width: 350px) {
+  * {
+    font-size: 10.5px;
+  }
+}
+@media screen and (max-width: 300px) {
+  * {
+    font-size: 9px;
+  }
+  .loginPage > h1 {
+    font-size: 3em;
+  }
+  .loginPage .sign {
+    width: 25em;
+  }
+}
+@media screen and (min-height: 400px) {
+  .inbox .bottom {
+    height: 93vh;
+  }
+}

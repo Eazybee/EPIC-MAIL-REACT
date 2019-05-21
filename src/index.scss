@@ -1,11 +1,628 @@
 * {
   margin: 0;
+  border: 0;
+  border-spacing: 0;
   padding: 0;
+  text-decoration: none;
+  list-style: none;
+  font-family: "calibri", sans-serif;
+  font-size: 16px;
+  outline: none;
+  color: #000;
+  position: relative;
+}
+::placeholder {
+  color: #b2beb5;
+}
+*:disabled {
+  pointer-events: none;
+}
+input,
+textarea,
+button,
+select {
+  border: 1px solid cyan;
+  border-radius: 0.2em;
+}
+button {
+  border-color: #296b73;
+  border-radius: 0.3em;
+}
+button:hover {
+  transition: linear 0.3s;
+  opacity: 0.8;
+  background-color: #194759;
+  color: lightblue;
+}
+input[type^="rad"] {
+  height: 1.1em;
+  width: 1.1em;
+}
+.hidden,
+.loginPage .sign.hidden,
+.loginPage .sign .hidden,
+.right-group .groups .hidden,
+.seek button.hidden,
+.inbox .view-message.hidden,
+.inbox .right-compose.hidden,
+.inbox .right .inbox-view > div.hidden {
+  display: none;
+}
+body,
+body > div {
+  width: 100%;
+  height: 100%;
+}
+.modal,
+.alert {
+  position: absolute;
+  top: 0;
+  height: 100vh;
+  z-index: 99;
+}
+.modal {
+  background-color: black;
+  opacity: 0.5;
+  position: fixed;
+}
+.alert {
+  width: 40%;
+  height: auto;
+  background-color: white;
+  border: cyan solid 0.08em;
+  border-radius: 0 0 0.5em 0.5em;
+  margin: 15% 30%;
+}
+.alert div {
+  padding: 1em;
+}
+.alert .title-bar {
+  padding: 0.5em 1em;
+  display: flex;
+  justify-content: space-between;
+  background: linear-gradient(-45deg, #194759, #194759, #23a6d5, #194759);
+}
+.alert .title-bar label {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: white;
+}
+.alert a {
+  font-size: 1.5em;
+  font-weight: bold;
+  text-align: center;
+  padding: 0.1em;
+  width: 1em;
+  border-radius: 0.5em;
+  background-color: transparent;
+  color: red;
+}
+.alert a:hover,
+.alert a:active {
+  transition: 0.5s;
+  background-color: red;
+  color: white;
+}
+.alert p {
+  font-size: 1.2em;
+}
+.body {
+  overflow: hidden;
+}
+.slider {
+  height: 100vh;
+  background-image: url("../public/img/email-background-images-1.v1.jpg");
+  background-position: left;
+}
+.slider div {
+  position: absolute;
+  width: 100%;
+  height: 100%;
 }
 
-body {
-  background-color: yellow;
-  h1 {
-    color: white;
+.slider div:first-child {
+  background: #576ca8;
+  opacity: 0.4;
+}
+.slider div {
+  background-color: transparent;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
+  padding: 0 10%;
+  width: 80%;
+}
+.slider p.bold {
+  font-weight: bold;
+}
+.slider p,
+.slider h1 {
+  color: white;
+  font-size: 1.5em;
+  padding: 0.5em;
+  text-align: center;
+  text-shadow: 0.7px 0.7px 0.5px #194759;
+}
+.slider span {
+  font-family: cursive;
+  color: white;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+.slider h1 {
+  font-family: "Time New Roman";
+  font-size: 3em;
+}
+.slider .btns {
+  top: 2em;
+}
+.slider .btns button {
+  background-color: #194759;
+  color: white;
+  padding: 0.5em;
+  width: 8em;
+  border-width: 0.15em;
+}
+.slider .btns button:hover,
+.slider .btns button:active {
+  border: 0.15em solid lightblue;
+}
+.slider .btns button:first-child {
+  margin-right: 0.5em;
+}
+.slider .arrowDown {
+  -moz-animation: pointdown 1s infinite both linear;
+  -webkit-animation: pointdown 1s infinite both linear;
+  -o-animation: pointdown 1s infinite both linear;
+  animation: pointdown 1s infinite both linear;
+  position: relative;
+  color: lightblue;
+}
+@keyframes pointdown {
+  0% {
+    top: 0;
+    opacity: 0;
   }
+  100% {
+    top: 2em;
+    opacity: 1;
+  }
+}
+.loginPage {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  height: 100vh;
+  min-height: 30em;
+  background-image: url("../public/img/email-background-images-1.v1.jpg");
+  background-size: cover;
+}
+.loginPage > h1 {
+  position: fixed;
+  font-size: 4em;
+  font-family: cursive;
+  text-transform: uppercase;
+  width: 100vw;
+  text-align: center;
+  padding: 0.2em 0;
+  color: white;
+  background: linear-gradient(-45deg, #194759, #194759, #23a6d5, #194759);
+  z-index: 2;
+}
+.loginPage .blind {
+  width: 100%;
+  height: 100vh;
+  background: #576ca8;
+  opacity: 0.4;
+  position: absolute;
+}
+.loginPage .sign {
+  margin-top: 1em;
+  width: 30em;
+  display: flex;
+  flex-flow: column nowrap;
+  padding-top: 10em;
+}
+.loginPage .sign > div {
+  display: flex;
+  flex-flow: column nowrap;
+  text-align: center;
+}
+.loginPage .sign label.top {
+  font-size: 1.5em;
+  padding: 0.7em 0;
+  background-color: lightblue;
+}
+.loginPage .sign form {
+  padding: 1em 1em 0 1em;
+}
+.loginPage .sign form div {
+  display: flex;
+  flex-flow: row nowrap;
+}
+.loginPage .sign form div * {
+  padding: 0.5em 0;
+  font-size: 1.2em;
+  margin: 2px;
+}
+.sign form div * {
+  width: 100%;
+  border: 1px solid cyan;
+  border-radius: 0.2em;
+}
+.loginPage .sign form div input {
+  width: 100%;
+  padding-left: 5%;
+}
+.loginPage .sign form button {
+  margin: 1em auto 0.5em auto;
+  width: 100%;
+  padding: 0.3em 0;
+  font-size: 1.5em;
+}
+.loginPage .sign p a {
+  font-weight: bold;
+  color: white;
+}
+.loginPage .sign p {
+  padding-left: 1em;
+  color: white;
+}
+.inbox {
+  height: 100vh;
+  overflow: hidden;
+}
+.inbox > .top {
+  padding: 0.8em;
+  border-bottom: lightblue solid 5px;
+  background: linear-gradient(-45deg, #194759, #194759, #23a6d5, #194759);
+}
+.inbox > .top > div:first-child {
+  display: flex;
+  justify-content: space-between;
+}
+.inbox .top > div:first-child > div:first-child {
+  display: flex;
+  flex-flow: column;
+}
+.inbox .top > div:first-child h1 {
+  font-size: 2em;
+  font-family: cursive;
+}
+.inbox .top > div:first-child h1,
+.inbox .top p {
+  color: white;
+}
+.inbox .top > div:first-child div button {
+  padding: 0.6em;
+  background: lightblue;
+  color: red;
+  font-weight: bold;
+  border-color: #0099ff;
+}
+.inbox .top > div:first-child div button:hover,
+.right-groupMember .update div:last-child button:nth-child(3):hover {
+  transition: 1s;
+  background: red;
+  color: white;
+}
+.inbox .seek {
+  display: none;
+}
+.seek button {
+  width: 2em;
+  font-size: 1.2em;
+  font-weight: bold;
+  text-align: center;
+  border: solid 0.2em lightblue;
+  top: 0.5em;
+}
+.inbox .bottom {
+  display: flex;
+  height: 85vh;
+  overflow: hidden;
+  width: 100%;
+}
+.inbox .bottom .left {
+  transition: 1s;
+  width: 20%;
+  border-right: lightblue solid 0.3em;
+  height: 110vh;
+}
+.inbox .bottom ul {
+  width: 100%;
+}
+.inbox .bottom li {
+  display: block;
+}
+.inbox .bottom li a {
+  display: block;
+  padding: 0.8em;
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #194759;
+}
+.inbox .bottom li a.active {
+  background-color: #194759;
+  color: white;
+}
+.inbox .bottom li a:hover {
+  background-color: #194759;
+  color: white;
+  transition: 0.5s;
+}
+.inbox .bottom .right {
+  transition: 1s;
+  width: calc(100% - 2em);
+  padding: 1em;
+  padding-bottom: 4em;
+  overflow: auto;
+}
+.inbox .bottom .toolbar {
+  padding: 0.2em;
+  border-bottom: lightblue solid 0.3em;
+}
+.inbox .toolbar button {
+  padding: 0.4em 0.8em;
+  border-radius: 0.5em;
+  border: #194759 solid 0.2em;
+  cursor: pointer;
+}
+.inbox .toolbar span {
+  display: inline-block;
+  text-align: center;
+  width: 5em;
+}
+.inbox .toolbar span input {
+  top: 0.15em;
+}
+.inbox .toolbar button:hover {
+  opacity: 0.8;
+  font-weight: bold;
+  border-color: lightblue;
+  transition: 1s;
+}
+.inbox .bottom .inbox-view > div {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  padding: 0.2em;
+  margin: 0.3em 0;
+}
+.inbox .bottom .inbox-view > div.unread * {
+  font-weight: bold;
+}
+.inbox .bottom .inbox-view > div > *:not(input) {
+  cursor: pointer;
+  text-overflow: ellipsis;
+}
+.inbox .bottom .inbox-view > div:hover {
+  background-color: #98e1ed;
+}
+.inbox .inbox-view div div {
+  width: 50%;
+}
+.inbox .inbox-view div div * {
+  float: left;
+}
+.inbox .inbox-view > div > p {
+  width: 20%;
+  display: inline-block;
+}
+.inbox .inbox-view label {
+  width: 15%;
+}
+.inbox .inbox-view > div > p,
+.inbox .inbox-view .subject,
+.inbox .inbox-view label {
+  padding-right: 0.5em;
+  overflow: hidden;
+}
+.inbox .inbox-view > div div {
+  max-height: 2.5em;
+  overflow: hidden;
+}
+.inbox .inbox-view input {
+  width: 1.2em;
+  height: 1.2em;
+}
+.inbox .view-message,
+.inbox .right-compose {
+  width: 100%;
+  display: block;
+}
+.inbox .view-message > div {
+  border: 1px solid lightblue;
+  padding: 0.5em;
+  margin-bottom: 1em;
+  width: calc(100% -1em);
+}
+.inbox .view-message .top {
+  display: flex;
+  flex-flow: row;
+  justify-content: space-between;
+  padding: 0.8em;
+  background: lightblue;
+}
+.inbox .view-message .top img {
+  width: 3em;
+  height: 3em;
+  margin-right: 1em;
+}
+.inbox .view-message .top p:nth-child(2) {
+  color: #194759;
+}
+.inbox .view-message h2 {
+  font-size: 1.3em;
+  padding: 0.5em 0;
+}
+.inbox .view-message .top.away {
+  background-color: #acebf2;
+}
+.inbox .right-compose div {
+  width: 100%;
+}
+.inbox .right-compose .address div {
+  display: flex;
+}
+.inbox .right-compose .address > div {
+  margin: 0.5em 0;
+}
+.inbox .right-compose .address label {
+  width: 20%;
+  display: inline-block;
+  font-size: 1.2em;
+  font-weight: bold;
+  margin-right: 1em;
+}
+.inbox .right-compose .address span:not(:last-child) {
+  margin-right: 5em;
+}
+.inbox .right-compose .address span * {
+  vertical-align: bottom;
+}
+.inbox .right-compose .address input[type="email"],
+.inbox .right-compose .address select {
+  padding: 0.5em;
+  width: 50%;
+}
+.inbox .right-compose .message {
+  width: 100%;
+  margin-top: 2em;
+  display: flex;
+  flex-flow: column nowrap;
+}
+.inbox .right-compose .message input {
+  padding: 0.5em;
+  font-weight: bold;
+  font-size: 1.2em;
+  border-color: lightblue;
+}
+.inbox .right-compose .message textarea {
+  padding: 1em 0.5em 0.5em 0.5em;
+  height: 10em;
+  border-color: lightblue;
+  margin-bottom: 0.3em;
+  resize: vertical;
+}
+.inbox .right-compose button {
+  float: right;
+  padding: 0.5em 2em;
+}
+button.sending {
+  background-color: orange;
+}
+button.sent {
+  background-color: limegreen;
+}
+.inbox .bottom .right-sent .toolbar {
+  border-color: #3e8c84;
+}
+.inbox .bottom .right-sent .inbox-view > div:hover {
+  background-color: #3e8c84;
+}
+.inbox .bottom .right-draft .toolbar {
+  border-color: #49738c;
+}
+.inbox .bottom .right-draft .inbox-view > div:hover {
+  background-color: #49738c;
+}
+.right-group > div > div {
+  padding: 1em;
+  display: flex;
+  flex-flow: column;
+}
+.right-group .create {
+  margin: 1em 0 3em 0;
+}
+.right-group .create input,
+.right-group .create button {
+  padding: 0.7em;
+  margin-bottom: 1em;
+}
+.right-group .groups {
+  border: 0.1em lightblue solid;
+  padding: 1em;
+  margin-bottom: 1em;
+}
+.right-group .groups > div:nth-child(2) {
+  display: flex;
+  flex-flow: column nowrap;
+}
+.right-group .groups div > div {
+  display: flex;
+  flex-flow: row nowrap;
+}
+.right-group .groups div.btn {
+  border-bottom: 0.3em lightblue solid;
+  margin-bottom: 1em;
+  padding: 0.7em 1em;
+}
+.right-group .groups .btn button {
+  padding: 0.5em 2em;
+}
+.right-group .groups div input {
+  width: 1.2em;
+  height: 1.2em;
+  margin: 0.5em 0;
+}
+.right-group .groups div:not(.btn) {
+  padding: 0 1em;
+}
+.right-group .groups div a {
+  width: 90%;
+  padding: 0.5em 0;
+  margin-left: 1em;
+}
+.right-group .groups div div:not(.btn):hover {
+  background-color: lightblue;
+}
+.right-groupMember > div {
+  margin-bottom: 3em;
+}
+.right-groupMember .update > div {
+  margin: 0.5em;
+  display: flex;
+}
+.right-groupMember .update div:first-child {
+  flex-flow: column nowrap;
+}
+.right-groupMember .update div:first-child * {
+  padding: 0.5em 0.4em;
+  font-weight: bold;
+  font-size: 1.5em;
+}
+.right-groupMember .update div:first-child input {
+  padding: 0.4em 0.4em;
+  border: 1px solid lightblue;
+}
+.right-groupMember .update div:last-child button {
+  width: 100%;
+  justify-content: center;
+  padding: 0.4em 0;
+}
+.right-groupMember .update div:last-child button:nth-child(2) {
+  width: 99.5%;
+  margin-right: 0.5%;
+}
+.right-groupMember .update div:last-child button:nth-child(3) {
+  width: 99.5%;
+  margin-left: 0.5%;
+}
+.right-groupMember .addMember form {
+  display: flex;
+  flex-flow: column nowrap;
+  padding: 0 0.5em;
+}
+.right-groupMember .addMember form * {
+  padding: 0.5em 0;
+  margin-bottom: 0.5em;
+}
+.right-groupMember .addMember form input {
+  padding: 0.5em 0.5em;
+}
+.right-groupMember .member {
+  padding: 0.5em;
+  border: 0.1em lightblue solid;
 }
