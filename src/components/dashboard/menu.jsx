@@ -1,24 +1,33 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 
 const Menu = () => (
   <div className="left show">
     <ul>
       <li>
-        <a className="active" href="#Compose">
+        <NavLink activeClassName="active" to="/dashboard/compose">
           Compose
-        </a>
+        </NavLink>
       </li>
       <li>
-        <a href="#Inbox">Inbox</a>
+        <NavLink activeClassName="active" to="/dashboard/inbox">
+          Inbox
+        </NavLink>
       </li>
       <li>
-        <a href="#Sent">Sent</a>
+        <NavLink activeClassName="active" to="/dashboard/sent">
+          Sent
+        </NavLink>
       </li>
       <li>
-        <a href="#Draft">Draft</a>
+        <NavLink activeClassName="active" to="/dashboard/draft">
+          Draft
+        </NavLink>
       </li>
       <li className="groups">
-        <a href="#Group">Groups</a>
+        <NavLink activeClassName="active" to="/dashboard/group">
+          Groups
+        </NavLink>
       </li>
     </ul>
   </div>

@@ -11,6 +11,7 @@ const config = {
   mode: process.env.NODE_ENV || 'development',
   resolve: {
     modules: [path.resolve(__dirname, 'src'), 'node_modules'],
+    extensions: ['*', '.js', '.jsx', '.css', '.scss'],
   },
   devServer: {
     contentBase: path.join(__dirname, 'src'),
