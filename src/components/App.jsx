@@ -9,7 +9,7 @@ const App = () => (
     <Route path="/" exact component={landingPage.Landing} />
     <Route path="/auth/:id" component={AuthPage} />
     <Route path="/auth" component={AuthPage} />
-    <Route path="/dashboard:id" component={DashBoard} />
+    <Route path="/dashboard/:id" component={DashBoard} />
     <Route path="/dashboard" component={DashBoard} />
   </Router>
 );
