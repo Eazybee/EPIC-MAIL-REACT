@@ -13,7 +13,7 @@ class MailView extends Component {
   };
 
   onClick = () => {
-    this.props.history.push('/dashboard/inbox/view');
+    this.props.history.push(`/dashboard/${this.props.fromUrl}/view`);
   };
 
   render() {
@@ -41,5 +41,6 @@ class MailView extends Component {
 MailView.propTypes = {
   data: Proptype.object.isRequired,
   history: Proptype.object.isRequired,
+  fromUrl: Proptype.string.isRequired,
 };
 export default withRouter(MailView);
