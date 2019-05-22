@@ -62,6 +62,7 @@ class Inbox extends Component {
                     date: 'Apr 11, 7:49 PM',
                     type: 'read',
                   }}
+                  fromUrl="inbox"
                 />
               </div>
             )}
