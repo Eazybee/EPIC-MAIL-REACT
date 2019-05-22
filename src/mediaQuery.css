@@ -44,8 +44,14 @@
     border-right: 0;
   }
   .inbox .bottom .left.show {
-    width: 25%;
+    width: 20%;
     border-right: lightblue solid 0.3em;
+  }
+  .inbox .bottom li a {
+    padding: 0.5em;
+  }
+  .inbox .right-compose .address label {
+    margin-right: 0.8em;
   }
   .inbox .bottom .right,
   .inbox .bottom .left {

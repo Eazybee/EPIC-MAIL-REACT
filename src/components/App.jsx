@@ -7,10 +7,11 @@ import DashBoard from './dashboard/index.jsx';
 const App = () => (
   <Router>
     <Route path="/" exact component={landingPage.Landing} />
-    <Route path="/auth/:id" component={AuthPage} />
-    <Route path="/auth" component={AuthPage} />
-    <Route path="/dashboard/:id" component={DashBoard} />
-    <Route path="/dashboard" component={DashBoard} />
+    <Route path="/auth/:id" exact component={AuthPage} />
+    <Route path="/auth" exact component={AuthPage} />
+    <Route path="/dashboard/:id" exact component={DashBoard} />
+    <Route path="/dashboard/:id/:id2" exact component={DashBoard} />
+    <Route path="/dashboard" exact component={DashBoard} />
   </Router>
 );
 

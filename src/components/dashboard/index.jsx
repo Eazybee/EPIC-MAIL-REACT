@@ -3,6 +3,7 @@ import Proptype from 'prop-types';
 import Header from './header.jsx';
 import Menu from './menu.jsx';
 import Compose from './compose.jsx';
+import Inbox from './inbox.jsx';
 import AlertBox from '../alert/alert.jsx';
 
 const DashBoard = props => (
@@ -12,7 +13,10 @@ const DashBoard = props => (
       <Header />
       <div className="bottom">
         <Menu />
-        <div className="right">{(props.match.params.id === 'compose' || !props.match.params.id) && <Compose />}</div>
+        <div className="right">
+          {props.match.params.id === 'inbox' && <Inbox match={props.match.params} />}
+          {(props.match.params.id === 'compose' || !props.match.params.id) && <Compose />}
+        </div>
       </div>
     </div>
     <AlertBox />
