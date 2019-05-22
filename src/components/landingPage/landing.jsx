@@ -10,7 +10,10 @@ function Landing(props) {
           <h1>
             Welcome To <span>Epic Mail</span>
           </h1>
-          <p>Epic Mail is a mailing web app that enables user to exchange information over the internet.</p>
+          <p>
+            Epic Mail is a mailing web app that enables user to exchange information over the
+            internet.
+          </p>
           <p className="bold">Bringing the world together</p>
           <a href="#">
             <span className="arrowDown">&#709;</span>

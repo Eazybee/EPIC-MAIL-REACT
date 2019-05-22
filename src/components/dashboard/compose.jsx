@@ -45,13 +45,34 @@ class Compose extends Component {
             </div>
             <div>
               <label>Address :</label>
-              <input type="email" name="email" onChange={this.onChange} placeholder="Johndoe@epicmail.com" required />
-              <select className="hidden" />
+              <input
+                type="email"
+                name="email"
+                onChange={this.onChange}
+                placeholder="Johndoe@epicmail.com"
+                className={this.state.to === 'Individual' ? '' : 'hidden'}
+                required={this.state.to === 'Individual'}
+              />
+              <select
+                className={this.state.to === 'Group' ? '' : 'hidden'}
+                required={this.state.to === 'Group'}
+              />
             </div>
           </div>
           <div className="message">
-            <input type="text" name="subject" onChange={this.onChange} placeholder="Enter Subject / Topic" required />
-            <textarea name="message" onChange={this.onChange} placeholder="Enter message body" required />
+            <input
+              type="text"
+              name="subject"
+              onChange={this.onChange}
+              placeholder="Enter Subject / Topic"
+              required
+            />
+            <textarea
+              name="message"
+              onChange={this.onChange}
+              placeholder="Enter message body"
+              required
+            />
           </div>
           <button type="submit">SEND</button>
           <button id="saveMail" form="">
