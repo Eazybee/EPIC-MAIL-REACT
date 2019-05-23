@@ -5,6 +5,7 @@ import Menu from './menu.jsx';
 import Compose from './compose.jsx';
 import Inbox from './inbox.jsx';
 import Sent from './sent.jsx';
+import Draft from './draft.jsx';
 import AlertBox from '../alert/alert.jsx';
 
 const DashBoard = props => (
@@ -17,9 +18,8 @@ const DashBoard = props => (
         <div className="right">
           {props.match.params.id === 'inbox' && <Inbox match={props.match.params} />}
           {(props.match.params.id === 'compose' || !props.match.params.id) && <Compose />}
-          {(props.match.params.id === 'sent' || !props.match.params.id) && (
-            <Sent match={props.match.params} />
-          )}
+          {props.match.params.id === 'sent' && <Sent match={props.match.params} />}
+          {props.match.params.id === 'draft' && <Draft match={props.match.params} />}
         </div>
       </div>
     </div>
