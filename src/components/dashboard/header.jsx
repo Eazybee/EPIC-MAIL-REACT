@@ -16,7 +16,7 @@ class Header extends Component {
         <div>
           <div>
             <h1> EPIC MAIL</h1>
-            <p />
+            <p>test@testing.com</p>
           </div>
           <div>
             <button>Log Out</button>
