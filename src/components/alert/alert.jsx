@@ -1,18 +1,26 @@
 import React from 'react';
+import Proptype from 'prop-types';
 
-export default function AlertBox() {
-  return (
-    <React.Fragment>
-      <div className="modal hidden" />
-      <div className="alert hidden">
-        <div className="title-bar">
-          <label>EPIC MAIL</label>
-          <a href="#">X</a>
-        </div>
-        <div className="alert-message">
-          <p />
-        </div>
+const AlertBox = props => (
+  <React.Fragment>
+    <div className={props.hidden ? 'modal hidden' : 'modal'} />
+    <div className={props.hidden ? 'alert hidden' : 'alert'}>
+      <div className="title-bar">
+        <label>EPIC MAIL</label>
+        <a href="#" onClick={props.onToggleAlert}>
+          X
+        </a>
       </div>
-    </React.Fragment>
-  );
-}
+      <div className="alert-message">
+        <p />
+      </div>
+    </div>
+  </React.Fragment>
+);
+
+AlertBox.propTypes = {
+  hidden: Proptype.bool.isRequired,
+  onToggleAlert: Proptype.func.isRequired,
+};
+
+export default AlertBox;
