@@ -16,7 +16,7 @@ class Header extends Component {
         <div>
           <div>
             <h1> EPIC MAIL</h1>
-            <p>test@testing.com</p>
+            <p>{localStorage.getItem('userEmail')}</p>
           </div>
           <div>
             <button>Log Out</button>
