@@ -2,8 +2,9 @@ import types from '../actions/types';
 
 const { LOGIN, LOGIN_ERROR } = types;
 const initialState = {
-  token: {},
-  error: {},
+  token: '',
+  error: '',
+  loading: false,
 };
 
 export default (state = initialState, action) => {
@@ -17,6 +18,11 @@ export default (state = initialState, action) => {
       return {
         ...state,
         error: action.payload,
+      };
+    case 'LOADING':
+      return {
+        ...state,
+        loading: action.payload,
       };
     default:
       return state;
