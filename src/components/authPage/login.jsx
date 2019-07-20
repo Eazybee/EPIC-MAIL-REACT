@@ -86,7 +86,7 @@ class Login extends Component {
           <label className="top">WELCOME BACK</label>
           {this.state.errorMsg && <label className='errorMsg'>{this.state.errorMsg}</label>}
         </div>
-        <form name="signin" id="signInForm" onSubmit={this.onSubmit}>
+        <form onSubmit={this.onSubmit}>
           {this.inputs.map(data => (
             <div key={data.name}>
               <Input
