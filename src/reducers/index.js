@@ -1,8 +1,14 @@
 import { combineReducers } from 'redux';
-import loginReducer from './login';
+import login from './login';
+import loading from './loading';
+import signup from './signup';
+import alert from './alert';
 
 const reducers = combineReducers({
-  login: loginReducer,
+  login,
+  loading,
+  signup,
+  alert,
 });
 
 export default reducers;

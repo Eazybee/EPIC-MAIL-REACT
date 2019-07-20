@@ -1,6 +1,4 @@
-const types = {
-  LOGIN: 'LOGIN',
-  LOGIN_ERROR: 'LOGIN_ERROR',
-};
-
-export default types;
+export const LOGIN = 'LOGIN';
+export const LOADING = 'LOADING';
+export const SIGNUP = 'SIGNUP';
+export const ALERT = 'ALERT';

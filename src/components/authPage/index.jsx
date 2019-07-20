@@ -13,7 +13,7 @@ class AuthPage extends Component {
         <div className="loginPage">
           <Header />
           <div className="blind" />
-          {this.props.match.params.id === 'signup' && <Signup />}
+          {this.props.match.params.id === 'signup' && <Signup history={this.props.history} />}
           {this.props.match.params.id === 'reset' && <Reset />}
           {(this.props.match.params.id === 'login' || !this.props.match.params.id) && (
             <Login history={this.props.history} />

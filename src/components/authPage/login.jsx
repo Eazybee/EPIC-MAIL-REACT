@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import Proptype from 'prop-types';
 import { connect } from 'react-redux';
+import Input from '../common/input.jsx';
 import loginAction from '../../actions/login';
+import { validate } from '../../utilities';
 
 class Login extends Component {
   state = {
@@ -10,16 +12,53 @@ class Login extends Component {
     password: '',
     disabled: false,
     login: '',
+    errorMsg: null,
   };
 
-  onSubmit = (e) => {
-    e.preventDefault();
+  inputs = [
+    {
+      type: 'email',
+      placeholder: 'Johndoe@epicmail.com',
+      name: 'email',
+      required: true,
+    },
+    {
+      type: 'password',
+      placeholder: '*******',
+      name: 'password',
+      required: true,
+    },
+  ];
+
+  onSubmit = (event) => {
+    event.preventDefault();
     const { email, password } = this.state;
     const obj = { email, password };
-    this.props.loginAction(obj);
+
+    const rules = {
+      email: 'required|email',
+      password: 'required|string',
+    };
+
+    const [state, data, message] = validate(obj, rules);
+
+    if (!state) {
+      return this.setState({
+        ...this.state,
+        ...data,
+        errorMsg: message,
+      });
+    }
+
+    this.setState({
+      ...this.state,
+      ...data,
+      errorMsg: null,
+    });
+    return this.props.loginAction(data);
   };
 
-  onChange = e => this.setState({ [e.target.name]: e.target.value });
+  onChange = event => this.setState({ [event.target.name]: event.target.value });
 
   static getDerivedStateFromProps(nextProps, prevState) {
     if (nextProps.login !== prevState.login) {
@@ -32,44 +71,33 @@ class Login extends Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    if (prevState.login) {
-      localStorage.setItem('auth', prevProps.login);
+    if (prevState.login !== this.state.login) {
+      localStorage.setItem('auth', this.state.login);
       localStorage.setItem('userEmail', this.state.email.toLowerCase());
       this.props.history.push('/dashboard');
     }
   }
 
   render() {
-    const { email, password, disabled } = this.state;
+    const { disabled } = this.state;
     return (
       <div className="sign signIn">
         <div>
           <label className="top">WELCOME BACK</label>
-          <label> </label>
+          {this.state.errorMsg && <label className='errorMsg'>{this.state.errorMsg}</label>}
         </div>
         <form name="signin" id="signInForm" onSubmit={this.onSubmit}>
-          <div>
-            <input
-              type="email"
-              placeholder="Johndoe@epicmail.com"
-              name="email"
-              value={email}
-              onChange={this.onChange}
-              disabled={disabled}
-              required
-            />
-          </div>
-          <div>
-            <input
-              type="password"
-              placeholder="******"
-              name="password"
-              value={password}
-              onChange={this.onChange}
-              disabled={disabled}
-              required
-            />
-          </div>
+          {this.inputs.map(data => (
+            <div key={data.name}>
+              <Input
+                data={data}
+                disabled={disabled}
+                onChange={this.onChange}
+                value={this.state[data.name]}
+                key={data.name}
+              />
+            </div>
+          ))}
           <button type="submit" disabled={disabled}>
             Login
           </button>
@@ -96,14 +124,12 @@ Login.propTypes = {
   history: Proptype.object.isRequired,
   loginAction: Proptype.func.isRequired,
   login: Proptype.string.isRequired,
-  loginERROR: Proptype.string.isRequired,
   loading: Proptype.bool.isRequired,
 };
 
 const mapStateToProps = state => ({
   login: state.login.token,
-  loginERROR: state.login.error,
-  loading: state.login.loading,
+  loading: state.loading.loading,
 });
 
 export default connect(

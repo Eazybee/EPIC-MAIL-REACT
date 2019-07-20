@@ -1,31 +1,52 @@
-class Utility {
-  static async request(method = 'GET', path, data, auth) {
-    if (!path) {
-      throw new Error('Path not defined!');
-    }
-    const url = `https://epic-mail-api.herokuapp.com/api/v1${path}`;
-    const headers = new Headers();
-    headers.append('Content-Type', 'application/json');
-    if (auth) {
-      headers.append('authorization', localStorage.getItem('auth'));
-    }
-    const init = {
-      method,
-      headers,
-    };
+import Validator from 'validatorjs';
 
-    if (data) {
-      init.body = JSON.stringify(data); // body data type must match "Content-Type" header
-    }
-    try {
-      const result = await fetch(url, init);
-      return result;
-    } catch (error) {
-      if (error.message === 'Failed to fetch') {
-        throw Error('ERROR: Check your internet connection and try again');
-      }
-      throw error;
-    }
+export default async (method = 'GET', path, data, auth) => {
+  if (!path) {
+    throw new Error('Path not defined!');
   }
-}
-export default Utility;
+  const url = `https://epic-mail-api.herokuapp.com/api/v1${path}`;
+  const headers = new Headers();
+  headers.append('Content-Type', 'application/json');
+  if (auth) {
+    headers.append('authorization', localStorage.getItem('auth'));
+  }
+  const init = {
+    method,
+    headers,
+  };
+
+  if (data) {
+    init.body = JSON.stringify(data); // body data type must match "Content-Type" header
+  }
+
+  try {
+    const result = await fetch(url, init);
+    return result;
+  } catch (error) {
+    if (error.message === 'Failed to fetch') {
+      throw Error('ERROR: Check your internet connection and try again');
+    }
+    throw error;
+  }
+};
+
+export const validate = (data, rules) => {
+  let validation;
+  let errorMessage;
+
+  Object.keys(data).forEach((key) => {
+    if (!errorMessage) {
+      validation = new Validator(
+        { [key]: data[key] },
+        { [key]: rules[key] },
+      );
+
+      errorMessage = validation.fails() && validation.errors.first(key);
+    }
+    data[key].trim();
+  });
+
+  return validation.passes()
+    ? [true, data]
+    : [false, data, errorMessage];
+};

@@ -1,21 +1,23 @@
-import { LOGIN, ALERT, LOADING } from './types';
+import { SIGNUP, ALERT, LOADING } from './types';
 import post from '../utilities';
 
-const loginAction = obj => async (dispatch) => {
+
+const signupAction = obj => async (dispatch) => {
   dispatch({
     type: LOADING,
     payload: true,
   });
 
   try {
-    const response = await post('POST', '/auth/login', obj);
+    const response = await post('POST', '/auth/signup', obj);
     const res = await response.json();
+
     if ('error' in res) {
       throw new Error(res.error);
     }
     if ('data' in res && 'token' in res.data[0]) {
       dispatch({
-        type: LOGIN,
+        type: SIGNUP,
         payload: res.data[0].token,
       });
     }
@@ -27,4 +29,4 @@ const loginAction = obj => async (dispatch) => {
   }
 };
 
-export default loginAction;
+export default signupAction;
