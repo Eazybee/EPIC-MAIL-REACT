@@ -16,22 +16,16 @@ class AlertBox extends Component {
     });
   };
 
-  // componentWillReceiveProps(nextProps) {
-  //   if (nextProps.loginERROR) {
-  //     this.setState({ hidden: false, content: nextProps.loginERROR });
-  //   }
-  // }
-
   static getDerivedStateFromProps(nextProps, nextState) {
     if (nextState.content === 'HIDE') {
       return { content: '', hidden: true };
     }
 
-    if (nextProps.loginERROR !== nextState.content) {
-      if (!nextProps.loginERROR) {
+    if (nextProps.message !== nextState.content) {
+      if (!nextProps.message) {
         return null;
       }
-      return { content: nextProps.loginERROR, hidden: false };
+      return { content: nextProps.message, hidden: false };
     }
     return null;
   }
@@ -58,11 +52,11 @@ class AlertBox extends Component {
 }
 
 AlertBox.propTypes = {
-  loginERROR: Proptype.string.isRequired,
+  message: Proptype.string.isRequired,
 };
 
 const mapStateToProps = state => ({
-  loginERROR: state.login.error,
+  message: state.alert.alertMessage,
 });
 
 export default connect(

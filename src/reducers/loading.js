@@ -1,17 +1,16 @@
-import { LOGIN } from '../actions/types';
+import { LOADING } from '../actions/types';
 
 
 const initialState = {
-  token: '',
-  error: '',
+  loading: false,
 };
 
 export default (state = initialState, action) => {
   switch (action.type) {
-    case LOGIN:
+    case LOADING:
       return {
         ...state,
-        token: action.payload,
+        loading: action.payload,
       };
     default:
       return state;

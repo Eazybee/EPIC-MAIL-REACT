@@ -1,14 +1,13 @@
-import { LOGIN } from '../actions/types';
+import { SIGNUP } from '../actions/types';
 
 
 const initialState = {
   token: '',
-  error: '',
 };
 
 export default (state = initialState, action) => {
   switch (action.type) {
-    case LOGIN:
+    case SIGNUP:
       return {
         ...state,
         token: action.payload,

@@ -16,7 +16,7 @@ const config = {
   devServer: {
     contentBase: path.join(__dirname, 'src'),
     historyApiFallback: true,
-    port: 3000,
+    port: 4000,
   },
   plugins: [
     new HtmlWebpackPlugin({

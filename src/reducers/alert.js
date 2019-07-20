@@ -1,17 +1,15 @@
-import { LOGIN } from '../actions/types';
-
+import { ALERT } from '../actions/types';
 
 const initialState = {
-  token: '',
-  error: '',
+  alertMessage: '',
 };
 
 export default (state = initialState, action) => {
   switch (action.type) {
-    case LOGIN:
+    case ALERT:
       return {
         ...state,
-        token: action.payload,
+        alertMessage: action.payload,
       };
     default:
       return state;

@@ -235,6 +235,9 @@ body > div {
   padding: 0.7em 0;
   background-color: lightblue;
 }
+.loginPage label.errorMsg{
+  color: red;
+}
 .loginPage .sign form {
   padding: 1em 1em 0 1em;
 }
