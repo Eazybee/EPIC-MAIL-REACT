@@ -7,7 +7,7 @@ import Inbox from './inbox.jsx';
 import Sent from './sent.jsx';
 import Draft from './draft.jsx';
 import GroupPage from './groups/index.jsx';
-import AlertBox from '../alert/alert.jsx';
+import AlertBox from '../common/alert.jsx';
 
 const DashBoard = props => (
   <React.Fragment>

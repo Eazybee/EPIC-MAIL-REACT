@@ -61,7 +61,7 @@ class Signup extends Component {
     if (prevState.signup !== this.state.signup) {
       this.props.alertAction('Sign up successful, Please Check your mail');
       setTimeout(() => {
-        this.props.history.push('/dashboard');
+        this.props.history.push('/auth/login');
       }, 5000);
     }
   }
@@ -117,7 +117,7 @@ class Signup extends Component {
           <label className="top">JOIN EPICMAIL TODAY</label>
           {this.state.errorMsg && <label className='errorMsg'>{this.state.errorMsg}</label>}
         </div>
-        <form name="signup" id="signUpForm" onSubmit={this.onSubmit}>
+        <form onSubmit={this.onSubmit}>
           {this.inputs.map(data => (
             <div key={data.name}>
               <Input
