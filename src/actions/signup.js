@@ -9,8 +9,7 @@ const signupAction = obj => async (dispatch) => {
   });
 
   try {
-    const response = await post('POST', '/auth/signup', obj);
-    const res = await response.json();
+    const res = await post('POST', '/auth/signup', obj);
 
     if ('error' in res) {
       throw new Error(res.error);

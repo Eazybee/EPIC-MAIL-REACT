@@ -38,6 +38,12 @@ input[type^="rad"] {
   height: 1.1em;
   width: 1.1em;
 }
+label.errorMsg {
+  color: red;
+  text-align: center;
+  width: 100%;
+  display: block;
+}
 .hidden,
 .loginPage .sign.hidden,
 .loginPage .sign .hidden,
@@ -72,7 +78,7 @@ body > div {
   background-color: white;
   border: cyan solid 0.08em;
   border-radius: 0 0 0.5em 0.5em;
-  margin: 15% auto;
+  margin: 15% 30%;
 }
 .alert div {
   padding: 1em;
@@ -234,9 +240,6 @@ body > div {
   font-size: 1.5em;
   padding: 0.7em 0;
   background-color: lightblue;
-}
-.loginPage label.errorMsg{
-  color: red;
 }
 .loginPage .sign form {
   padding: 1em 1em 0 1em;
@@ -629,4 +632,32 @@ button.sent {
 .right-groupMember .member {
   padding: 0.5em;
   border: 0.1em lightblue solid;
+}
+
+.spinnerWrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+}
+
+.spinner {
+  border: 5px solid #f3f3f3;
+  border-top: 5px solid #296b73;
+  border-radius: 50%;
+  width: 6em;
+  height: 6em;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }

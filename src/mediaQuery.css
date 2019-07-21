@@ -9,6 +9,7 @@
   }
   .alert {
     width: 40%;
+    margin:15% 30%;
   }
 }
 @media screen and (min-width: 600px) and (max-width: 768px) {
@@ -17,6 +18,7 @@
   }
   .alert {
     width: 50%;
+    margin:15% 25%;
   }
 }
 
@@ -27,7 +29,7 @@
   }
   .alert {
     width: 80%;
-    margin: 15% auto;
+    margin:15% 10%;
   }
   .loginPage > h1 {
     font-size: 4em;

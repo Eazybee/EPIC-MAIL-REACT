@@ -1,5 +1,26 @@
 import Validator from 'validatorjs';
 
+export const validate = (data, rules) => {
+  let validation;
+  let errorMessage;
+
+  Object.keys(data).forEach((key) => {
+    if (!errorMessage) {
+      validation = new Validator(
+        { [key]: data[key] },
+        { [key]: rules[key] },
+      );
+
+      errorMessage = validation.fails() && validation.errors.first(key);
+    }
+    data[key].trim();
+  });
+
+  return validation.passes()
+    ? [true, data]
+    : [false, data, errorMessage];
+};
+
 export default async (method = 'GET', path, data, auth) => {
   if (!path) {
     throw new Error('Path not defined!');
@@ -21,32 +42,16 @@ export default async (method = 'GET', path, data, auth) => {
 
   try {
     const result = await fetch(url, init);
-    return result;
+    const res = await result.json();
+    if (res.status === 401) {
+      localStorage.removeItem('auth');
+      localStorage.removeItem('userEmail');
+    }
+    return res;
   } catch (error) {
     if (error.message === 'Failed to fetch') {
       throw Error('ERROR: Check your internet connection and try again');
     }
     throw error;
   }
-};
-
-export const validate = (data, rules) => {
-  let validation;
-  let errorMessage;
-
-  Object.keys(data).forEach((key) => {
-    if (!errorMessage) {
-      validation = new Validator(
-        { [key]: data[key] },
-        { [key]: rules[key] },
-      );
-
-      errorMessage = validation.fails() && validation.errors.first(key);
-    }
-    data[key].trim();
-  });
-
-  return validation.passes()
-    ? [true, data]
-    : [false, data, errorMessage];
 };
