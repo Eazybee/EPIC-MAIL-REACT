@@ -1,9 +1,17 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
+import Proptype from 'prop-types';
 
 class Header extends Component {
   state = {
     direction: 'out',
   };
+
+  handleLogOut = () => {
+    localStorage.removeItem('auth');
+    localStorage.removeItem('userEmail');
+    this.props.history.push('/auth/login');
+  }
 
   onClick = (e) => {
     const cName = e.target.name === 'out' ? 'in' : 'out';
@@ -19,7 +27,7 @@ class Header extends Component {
             <p>{localStorage.getItem('userEmail')}</p>
           </div>
           <div>
-            <button>Log Out</button>
+            <button onClick={this.handleLogOut}>Log Out</button>
           </div>
         </div>
         <div className="seek">
@@ -43,4 +51,8 @@ class Header extends Component {
   }
 }
 
-export default Header;
+Header.propTypes = {
+  history: Proptype.object.isRequired,
+};
+
+export default withRouter(Header);
