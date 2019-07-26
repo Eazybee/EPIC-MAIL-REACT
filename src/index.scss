@@ -413,6 +413,9 @@ body > div {
 .inbox .inbox-view div div * {
   float: left;
 }
+.inbox .inbox-view div div p {
+  width: 100%;
+}
 .inbox .inbox-view > div > p {
   width: 20%;
   display: inline-block;
@@ -636,7 +639,7 @@ button.sent {
 
 .spinnerWrapper {
   width: 100%;
-  height: 100%;
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;

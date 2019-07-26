@@ -18,8 +18,8 @@ class AuthPage extends Component {
           {(this.props.match.params.id === 'login' || !this.props.match.params.id) && (
             <Login history={this.props.history} />
           )}
-          <AlertBox />
         </div>
+        <AlertBox />
       </React.Fragment>
     );
   }

@@ -17,7 +17,7 @@ const DashBoard = props => (
       <div className="bottom">
         <Menu />
         <div className="right">
-          {props.match.params.id === 'inbox' && <Inbox match={props.match.params} />}
+          {props.match.params.id === 'inbox' && <Inbox />}
           {(props.match.params.id === 'compose' || !props.match.params.id) && <Compose />}
           {props.match.params.id === 'sent' && <Sent match={props.match.params} />}
           {props.match.params.id === 'draft' && <Draft match={props.match.params} />}

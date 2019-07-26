@@ -6,6 +6,7 @@ import reset from './reset';
 import sendMessage from './sendMessage';
 import sendGroupMessage from './sendGroupMessage';
 import saveMessage from './saveMessage';
+import getMessage from './getMessage';
 import alert from './alert';
 
 const reducers = combineReducers({
@@ -16,6 +17,7 @@ const reducers = combineReducers({
   sendMessage,
   sendGroupMessage,
   saveMessage,
+  getMessage,
   alert,
 });
 

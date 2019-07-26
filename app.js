@@ -1,0 +1,17 @@
+const express = require('express');
+const cors = require('cors');
+const path = require('path');
+
+const app = express();
+
+app.use(cors());
+
+app.use(express.static(path.join(__dirname, './build')));
+
+app.get('*', (req, res) => {
+  res.header('X-XSS-Protection', 0);
+  res.status(200).sendFile(path.join(__dirname, './build/index.bundle.html'));
+});
+
+const port = process.env.PORT || 3000;
+app.listen(port, () => console.log(`Listening on ${port}`));
