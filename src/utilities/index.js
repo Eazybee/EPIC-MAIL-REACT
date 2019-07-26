@@ -21,6 +21,21 @@ export const validate = (data, rules) => {
     : [false, data, errorMessage];
 };
 
+export const dateFormatter = (date, type) => {
+  const options = {
+    month: 'short',
+    day: 'numeric',
+    hour: 'numeric',
+    minute: 'numeric',
+  };
+
+  if (type) {
+    options.year = 'numeric';
+  }
+
+  return new Intl.DateTimeFormat('en-US', options).format(new Date(parseInt(date, 10)));
+};
+
 export default async (method = 'GET', path, data, auth) => {
   if (!path) {
     throw new Error('Path not defined!');

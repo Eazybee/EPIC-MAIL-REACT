@@ -1,8 +1,8 @@
 import { LOGIN } from '../actions/types';
 
-
 const initialState = {
-  token: '',
+  token: localStorage.getItem('auth') || '',
+  userEmail: localStorage.getItem('userEmail') || '',
 };
 
 export default (state = initialState, action) => {

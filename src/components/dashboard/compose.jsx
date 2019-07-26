@@ -23,13 +23,13 @@ class Compose extends Component {
     sentGroup: '',
   };
 
-  async componentDidMount() {
+  componentDidMount() {
     this.getGroups();
   }
 
   getGroups = async () => {
     try {
-      const groups = await requestApi('GET', '/groups/', null, true);
+      const groups = await requestApi('GET', '/groups', null, true);
       if ('error' in groups) {
         throw new Error(groups.error);
       }
