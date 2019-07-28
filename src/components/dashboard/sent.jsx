@@ -12,6 +12,8 @@ const Sent = props => (
         </div>
         <div className="inbox-view">
           <MailView
+            onClick={() => {}}
+            onSelect={() => {}}
             data={{
               id: 1,
               mail: 'a@b.com',
@@ -27,7 +29,7 @@ const Sent = props => (
     )}
     {props.match.id2 === 'view' && (
       <div className="view-message">
-        <ViewMail />
+        <ViewMail data={[]} />
       </div>
     )}
   </React.Fragment>
